@@ -41,7 +41,7 @@ async function handleEvent(event) {
   const profile = await client.getProfile(event.source.userId);
   const randomIndex = Math.floor(Math.random() * message.length);
 
-  console.log(randomMessage, profile.displayName);
+  console.log(randomIndex, profile.displayName);
   const echo = {
     type: 'text',
     text: `${profile.displayName} ${message[randomIndex]}`
