@@ -39,7 +39,7 @@ async function handleEvent(event) {
 
   // create a echoing text message
   const profile = await client.getProfile(event.source.userId);
-  const randomMessage = Math.floor(Math.random * message.length);
+  const randomMessage = Math.floor(Math.random() * message.length);
 
   console.log(randomMessage, profile.displayName);
   const echo = { type: 'text', text: event.message.text };
