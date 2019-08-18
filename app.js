@@ -16,9 +16,6 @@ app.get('/', (req, res) => {
     message: 'Berhasil Gan'
   });
 });
-// create Express app
-// about Express itself: https://expressjs.com/
-const app = express();
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
