@@ -29,13 +29,19 @@ app.post('/callback', line.middleware(config), (req, res) => {
 });
 
 // event handler
-function handleEvent(event) {
+async function handleEvent(event) {
   if (event.type !== 'message' || event.message.type !== 'text') {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
 
+  const message = ['Asu', 'Jancok', 'Kontol', 'Bangsat', 'Bego', 'Kimak'];
+
   // create a echoing text message
+  const profile = await client.getProfile(event.source.userId);
+  const randomMessage = Math.floor(Math.random * message.length);
+
+  console.log(randomMessage, profile.displayName);
   const echo = { type: 'text', text: event.message.text };
 
   // use reply API
