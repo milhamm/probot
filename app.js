@@ -37,6 +37,6 @@ function handleEvent(event) {
   return client.replyMessage(event.replyToken, echo);
 }
 
-app.listen(4000, () => {
-  console.log('Listening');
+app.listen(process.env.PORT || 4000, function() {
+  console.log('Your node js server is running');
 });
