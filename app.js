@@ -7,6 +7,8 @@ const config = {
   channelSecret: '298e579419ae3e0e61eaf641d2afd809'
 };
 
+const client = new line.Client(config);
+
 const app = express();
 
 app.get('/', (req, res) => {
