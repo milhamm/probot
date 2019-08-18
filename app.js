@@ -35,7 +35,16 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  const message = ['Asu', 'Jancok', 'Kontol', 'Bangsat', 'Bego', 'Kimak'];
+  const message = [
+    'Asu',
+    'Jancok',
+    'Kontol',
+    'Bangsat',
+    'Bego',
+    'Kimak',
+    'Kampang',
+    'Pantek'
+  ];
 
   // create a echoing text message
   const profile = await client.getProfile(event.source.userId);
