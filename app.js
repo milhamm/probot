@@ -56,6 +56,10 @@ async function handleEvent(event) {
     case 'ngirim':
       // U5b8038d4acf2c3c808e89bd8fe75f281
       angka = 1;
+      client.replyMessage(event.replyToken, {
+        type: 'text',
+        text: 'Sudah Berhasil Di push'
+      });
       job = schedule.scheduleJob('*/30 * * * * *', () =>
         client.pushMessage(event.source.userId, {
           type: 'text',
@@ -65,7 +69,11 @@ async function handleEvent(event) {
       console.log(angka);
       break;
     case 'promosi-mie-now':
-      return job.scheduleJob('*/30 * * * * *', () =>
+      client.replyMessage(event.replyToken, {
+        type: 'text',
+        text: 'Sudah Berhasil Di Promosikan'
+      });
+      return schedule.scheduleJob('*/30 * * * * *', () =>
         client.pushMessage(event.source.groupId, {
           type: 'text',
           text: 'Berhasil Push Group'
