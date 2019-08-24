@@ -1,5 +1,7 @@
 const line = require('@line/bot-sdk');
 const express = require('express');
+const schedule = require('node-schedule');
+
 const dotenv = require('dotenv').config();
 
 const config = {
@@ -48,12 +50,12 @@ async function handleEvent(event) {
       return client.replyMessage(event.replyToken, echo);
     case 'ngirim':
       // U5b8038d4acf2c3c808e89bd8fe75f281
-      setTimeout(() => {
-        return client.pushMessage('U5b8038d4acf2c3c808e89bd8fe75f281', {
+      schedule.scheduleJob('15 * * * * *', () =>
+        client.pushMessage('U5b8038d4acf2c3c808e89bd8fe75f281', {
           type: 'text',
           text: 'Berhasil Push'
-        });
-      }, 2000);
+        })
+      );
   }
   // create a echoing text message
 }
