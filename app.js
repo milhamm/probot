@@ -49,6 +49,7 @@ async function handleEvent(event) {
       console.log(event);
       // use reply API
       return client.replyMessage(event.replyToken, echo);
+      break;
     case 'ngirim':
       // U5b8038d4acf2c3c808e89bd8fe75f281
       job = schedule.scheduleJob('*/5 * * * * *', () =>
@@ -57,12 +58,14 @@ async function handleEvent(event) {
           text: 'Berhasil Push'
         })
       );
+      break;
     case 'stop':
       job.cancel();
       return client.replyMessage(event.replyToken, {
         type: 'text',
         text: 'Sudah Berhasil Di cancel'
       });
+      break;
   }
   // create a echoing text message
 }
