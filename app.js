@@ -39,7 +39,9 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  let job = schedule;
+  let job;
+  let angka;
+
   switch (event.message.text) {
     case '/maki':
       const profile = await client.getProfile(event.source.userId);
@@ -53,15 +55,24 @@ async function handleEvent(event) {
       break;
     case 'ngirim':
       // U5b8038d4acf2c3c808e89bd8fe75f281
-
-      return job.scheduleJob('*/5 * * * * *', () =>
+      angka = 1;
+      job = schedule.scheduleJob('*/30 * * * * *', () =>
         client.pushMessage(event.source.userId, {
           type: 'text',
           text: 'Berhasil Push'
         })
       );
+      console.log(angka);
       break;
+    case 'promosi-mie-now':
+      return job.scheduleJob('*/30 * * * * *', () =>
+        client.pushMessage(event.source.groupId, {
+          type: 'text',
+          text: 'Berhasil Push Group'
+        })
+      );
     case 'stop':
+      console.log(angka);
       job.cancel();
       return client.replyMessage(event.replyToken, {
         type: 'text',
