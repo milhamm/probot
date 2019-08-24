@@ -39,7 +39,7 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  let job;
+  let job = schedule;
   switch (event.message.text) {
     case '/maki':
       const profile = await client.getProfile(event.source.userId);
@@ -53,8 +53,9 @@ async function handleEvent(event) {
       break;
     case 'ngirima':
       // U5b8038d4acf2c3c808e89bd8fe75f281
-      job = schedule.scheduleJob('*/5 * * * * *', () =>
-        client.pushMessage('U5b8038d4acf2c3c808e89bd8fe75f281', {
+
+      return job.scheduleJob('*/5 * * * * *', () =>
+        client.pushMessage(event.source.userId, {
           type: 'text',
           text: 'Berhasil Push'
         })
