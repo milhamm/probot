@@ -50,7 +50,7 @@ async function handleEvent(event) {
       // use reply API
       return client.replyMessage(event.replyToken, echo);
       break;
-    case 'ngirim':
+    case 'ngirima':
       // U5b8038d4acf2c3c808e89bd8fe75f281
       job = schedule.scheduleJob('*/5 * * * * *', () =>
         client.pushMessage('U5b8038d4acf2c3c808e89bd8fe75f281', {
