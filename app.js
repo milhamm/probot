@@ -35,29 +35,20 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  const message = [
-    'Asu',
-    'Jancok',
-    'Kontol',
-    'Bangsat',
-    'Bego',
-    'Kimak',
-    'Kampang',
-    'Pantek'
-  ];
+  switch (event.message.text) {
+    case '/maki':
+      const profile = await client.getProfile(event.source.userId);
 
+      const echo = {
+        type: 'text',
+        text: `Mieee`
+      };
+      console.log(event);
+      // use reply API
+      return client.replyMessage(event.replyToken, echo);
+    case 'ngirim':
+  }
   // create a echoing text message
-  const profile = await client.getProfile(event.source.userId);
-  const randomIndex = Math.floor(Math.random() * message.length);
-
-  console.log(randomIndex, profile.displayName);
-  const echo = {
-    type: 'text',
-    text: `${profile.displayName} ${message[randomIndex]}`
-  };
-
-  // use reply API
-  return client.replyMessage(event.replyToken, echo);
 }
 
 // listen on port
