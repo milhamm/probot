@@ -1,10 +1,10 @@
 const line = require('@line/bot-sdk');
 const express = require('express');
+const dotenv = require('dotenv').config();
 
 const config = {
-  channelAccessToken:
-    'yjF/EX5iXQoZhswmutYWK+MF1YbFJ/+QIeR1d7pSOAcqdsy2snx3FsG2dibuFby5ejw9s56nPwMrlJx+XgUctM+JW8x6UrteOPo6YnH5qThkwEBM4+bwlopds0U95M1RhGioiZ3CSBG+RyHfiqIrGQdB04t89/1O/w1cDnyilFU=',
-  channelSecret: '298e579419ae3e0e61eaf641d2afd809'
+  channelAccessToken: process.env.CHANNEL_ACCESS,
+  channelSecret: process.env.CHANNEL_SECRET
 };
 
 const client = new line.Client(config);
