@@ -78,7 +78,6 @@ async function handleEvent(event) {
         type: 'text',
         text: 'Sudah Berhasil Di cancel'
       });
-      break;
   }
   // create a echoing text message
 }
