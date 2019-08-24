@@ -32,6 +32,8 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 // event handler
 async function handleEvent(event) {
+  console.log(event);
+
   if (event.type !== 'message' || event.message.type !== 'text') {
     // ignore non-text-message event
     return Promise.resolve(null);
@@ -46,7 +48,6 @@ async function handleEvent(event) {
         type: 'text',
         text: `Mieee`
       };
-      console.log(event);
       // use reply API
       return client.replyMessage(event.replyToken, echo);
       break;
