@@ -47,6 +47,13 @@ async function handleEvent(event) {
       // use reply API
       return client.replyMessage(event.replyToken, echo);
     case 'ngirim':
+      // U5b8038d4acf2c3c808e89bd8fe75f281
+      setTimeout(() => {
+        return client.pushMessage('U5b8038d4acf2c3c808e89bd8fe75f281', {
+          type: 'text',
+          text: 'Berhasil Push'
+        });
+      }, 2000);
   }
   // create a echoing text message
 }
