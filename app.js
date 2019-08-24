@@ -37,6 +37,7 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
+  let job;
   switch (event.message.text) {
     case '/maki':
       const profile = await client.getProfile(event.source.userId);
@@ -50,12 +51,18 @@ async function handleEvent(event) {
       return client.replyMessage(event.replyToken, echo);
     case 'ngirim':
       // U5b8038d4acf2c3c808e89bd8fe75f281
-      schedule.scheduleJob('15 * * * * *', () =>
+      job = schedule.scheduleJob('*/5 * * * * *', () =>
         client.pushMessage('U5b8038d4acf2c3c808e89bd8fe75f281', {
           type: 'text',
           text: 'Berhasil Push'
         })
       );
+    case 'stop':
+      job.cancel();
+      return client.replyMessage(event.replyToken, {
+        type: 'text',
+        text: 'Sudah Berhasil Di cancel'
+      });
   }
   // create a echoing text message
 }
