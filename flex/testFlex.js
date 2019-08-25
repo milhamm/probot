@@ -1,8 +1,14 @@
 module.exports = {
   type: 'bubble',
-  styles: {
-    footer: {
-      separator: true
+  hero: {
+    type: 'image',
+    url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png',
+    size: 'full',
+    aspectRatio: '20:13',
+    aspectMode: 'cover',
+    action: {
+      type: 'uri',
+      uri: 'http://linecorp.com/'
     }
   },
   body: {
@@ -11,203 +17,139 @@ module.exports = {
     contents: [
       {
         type: 'text',
-        text: 'RECEIPT',
+        text: 'Brown Cafe',
         weight: 'bold',
-        color: '#1DB446',
-        size: 'sm'
+        size: 'xl'
       },
       {
-        type: 'text',
-        text: 'Brown Store',
-        weight: 'bold',
-        size: 'xxl',
-        margin: 'md'
-      },
-      {
-        type: 'text',
-        text: 'Miraina Tower, 4-1-6 Shinjuku, Tokyo',
-        size: 'xs',
-        color: '#aaaaaa',
-        wrap: true
-      },
-      {
-        type: 'separator',
-        margin: 'xxl'
+        type: 'box',
+        layout: 'baseline',
+        margin: 'md',
+        contents: [
+          {
+            type: 'icon',
+            size: 'sm',
+            url:
+              'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png'
+          },
+          {
+            type: 'icon',
+            size: 'sm',
+            url:
+              'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png'
+          },
+          {
+            type: 'icon',
+            size: 'sm',
+            url:
+              'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png'
+          },
+          {
+            type: 'icon',
+            size: 'sm',
+            url:
+              'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png'
+          },
+          {
+            type: 'icon',
+            size: 'sm',
+            url:
+              'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png'
+          },
+          {
+            type: 'text',
+            text: '4.0',
+            size: 'sm',
+            color: '#999999',
+            margin: 'md',
+            flex: 0
+          }
+        ]
       },
       {
         type: 'box',
         layout: 'vertical',
-        margin: 'xxl',
+        margin: 'lg',
         spacing: 'sm',
         contents: [
           {
             type: 'box',
-            layout: 'horizontal',
+            layout: 'baseline',
+            spacing: 'sm',
             contents: [
               {
                 type: 'text',
-                text: 'Energy Drink',
+                text: 'Place',
+                color: '#aaaaaa',
                 size: 'sm',
-                color: '#555555',
-                flex: 0
+                flex: 1
               },
               {
                 type: 'text',
-                text: '$2.99',
+                text: 'Miraina Tower, 4-1-6 Shinjuku, Tokyo',
+                wrap: true,
+                color: '#666666',
                 size: 'sm',
-                color: '#111111',
-                align: 'end'
+                flex: 5
               }
             ]
           },
           {
             type: 'box',
-            layout: 'horizontal',
+            layout: 'baseline',
+            spacing: 'sm',
             contents: [
               {
                 type: 'text',
-                text: 'Chewing Gum',
+                text: 'Time',
+                color: '#aaaaaa',
                 size: 'sm',
-                color: '#555555',
-                flex: 0
+                flex: 1
               },
               {
                 type: 'text',
-                text: '$0.99',
+                text: '10:00 - 23:00',
+                wrap: true,
+                color: '#666666',
                 size: 'sm',
-                color: '#111111',
-                align: 'end'
+                flex: 5
               }
             ]
-          },
-          {
-            type: 'box',
-            layout: 'horizontal',
-            contents: [
-              {
-                type: 'text',
-                text: 'Bottled Water',
-                size: 'sm',
-                color: '#555555',
-                flex: 0
-              },
-              {
-                type: 'text',
-                text: '$3.33',
-                size: 'sm',
-                color: '#111111',
-                align: 'end'
-              }
-            ]
-          },
-          {
-            type: 'separator',
-            margin: 'xxl'
-          },
-          {
-            type: 'box',
-            layout: 'horizontal',
-            margin: 'xxl',
-            contents: [
-              {
-                type: 'text',
-                text: 'ITEMS',
-                size: 'sm',
-                color: '#555555'
-              },
-              {
-                type: 'text',
-                text: '3',
-                size: 'sm',
-                color: '#111111',
-                align: 'end'
-              }
-            ]
-          },
-          {
-            type: 'box',
-            layout: 'horizontal',
-            contents: [
-              {
-                type: 'text',
-                text: 'TOTAL',
-                size: 'sm',
-                color: '#555555'
-              },
-              {
-                type: 'text',
-                text: '$7.31',
-                size: 'sm',
-                color: '#111111',
-                align: 'end'
-              }
-            ]
-          },
-          {
-            type: 'box',
-            layout: 'horizontal',
-            contents: [
-              {
-                type: 'text',
-                text: 'CASH',
-                size: 'sm',
-                color: '#555555'
-              },
-              {
-                type: 'text',
-                text: '$8.0',
-                size: 'sm',
-                color: '#111111',
-                align: 'end'
-              }
-            ]
-          },
-          {
-            type: 'box',
-            layout: 'horizontal',
-            contents: [
-              {
-                type: 'text',
-                text: 'CHANGE',
-                size: 'sm',
-                color: '#555555'
-              },
-              {
-                type: 'text',
-                text: '$0.69',
-                size: 'sm',
-                color: '#111111',
-                align: 'end'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        type: 'separator',
-        margin: 'xxl'
-      },
-      {
-        type: 'box',
-        layout: 'horizontal',
-        margin: 'md',
-        contents: [
-          {
-            type: 'text',
-            text: 'PAYMENT ID',
-            size: 'xs',
-            color: '#aaaaaa',
-            flex: 0
-          },
-          {
-            type: 'text',
-            text: '#743289384279',
-            color: '#aaaaaa',
-            size: 'xs',
-            align: 'end'
           }
         ]
       }
     ]
+  },
+  footer: {
+    type: 'box',
+    layout: 'vertical',
+    spacing: 'sm',
+    contents: [
+      {
+        type: 'button',
+        style: 'link',
+        height: 'sm',
+        action: {
+          type: 'uri',
+          label: 'CALL',
+          uri: 'https://linecorp.com'
+        }
+      },
+      {
+        type: 'button',
+        style: 'link',
+        height: 'sm',
+        action: {
+          type: 'uri',
+          label: 'WEBSITE',
+          uri: 'https://linecorp.com'
+        }
+      },
+      {
+        type: 'spacer',
+        size: 'sm'
+      }
+    ],
+    flex: 0
   }
 };
