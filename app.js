@@ -4,6 +4,7 @@ const schedule = require('node-schedule');
 
 // Flex Messages
 const menuFlex = require('./flex/menuFlex');
+const testFlex = require('./flex/testFlex');
 const Scheduler = require('./Scheduler');
 
 const dotenv = require('dotenv').config();
@@ -70,7 +71,7 @@ async function handleEvent(event) {
         })
       );
     case 'testF':
-      return client.replyMessage(event.replyToken, menuFlex);
+      return client.replyMessage(event.replyToken, testFlex);
     case '!startPromosi':
       client.replyMessage(event.replyToken, {
         type: 'text',
