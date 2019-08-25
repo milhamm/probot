@@ -1,5 +1,10 @@
 module.exports = {
   type: 'bubble',
+  styles: {
+    footer: {
+      separator: true
+    }
+  },
   hero: {
     type: 'image',
     url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png',
@@ -17,54 +22,9 @@ module.exports = {
     contents: [
       {
         type: 'text',
-        text: 'Brown Cafe',
+        text: 'Mie Daffa',
         weight: 'bold',
         size: 'xl'
-      },
-      {
-        type: 'box',
-        layout: 'baseline',
-        margin: 'md',
-        contents: [
-          {
-            type: 'icon',
-            size: 'sm',
-            url:
-              'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png'
-          },
-          {
-            type: 'icon',
-            size: 'sm',
-            url:
-              'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png'
-          },
-          {
-            type: 'icon',
-            size: 'sm',
-            url:
-              'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png'
-          },
-          {
-            type: 'icon',
-            size: 'sm',
-            url:
-              'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png'
-          },
-          {
-            type: 'icon',
-            size: 'sm',
-            url:
-              'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png'
-          },
-          {
-            type: 'text',
-            text: '4.0',
-            size: 'sm',
-            color: '#999999',
-            margin: 'md',
-            flex: 0
-          }
-        ]
       },
       {
         type: 'box',
@@ -79,14 +39,14 @@ module.exports = {
             contents: [
               {
                 type: 'text',
-                text: 'Place',
+                text: 'Lokasi',
                 color: '#aaaaaa',
                 size: 'sm',
                 flex: 1
               },
               {
                 type: 'text',
-                text: 'Miraina Tower, 4-1-6 Shinjuku, Tokyo',
+                text: 'Gedung 02 Kamar ???',
                 wrap: true,
                 color: '#666666',
                 size: 'sm',
@@ -95,24 +55,105 @@ module.exports = {
             ]
           },
           {
+            type: 'separator'
+          },
+          {
             type: 'box',
-            layout: 'baseline',
-            spacing: 'sm',
+            layout: 'horizontal',
             contents: [
               {
                 type: 'text',
-                text: 'Time',
-                color: '#aaaaaa',
+                text: 'Mie',
                 size: 'sm',
-                flex: 1
+                color: '#555555',
+                flex: 0
               },
               {
                 type: 'text',
-                text: '10:00 - 23:00',
-                wrap: true,
-                color: '#666666',
+                text: 'Rp6000',
                 size: 'sm',
-                flex: 5
+                color: '#111111',
+                align: 'end'
+              }
+            ]
+          },
+          {
+            type: 'box',
+            layout: 'horizontal',
+            contents: [
+              {
+                type: 'text',
+                text: 'Mie + Telur',
+                size: 'sm',
+                color: '#555555',
+                flex: 0
+              },
+              {
+                type: 'text',
+                text: 'Rp8000',
+                size: 'sm',
+                color: '#111111',
+                align: 'end'
+              }
+            ]
+          },
+          {
+            type: 'box',
+            layout: 'horizontal',
+            contents: [
+              {
+                type: 'text',
+                text: '2 Mie + 2 Telur',
+                size: 'sm',
+                color: '#555555',
+                flex: 0
+              },
+              {
+                type: 'text',
+                text: 'Rp15.000 (Hemat 1k)',
+                size: 'sm',
+                color: '#111111',
+                align: 'end'
+              }
+            ]
+          },
+          {
+            type: 'box',
+            layout: 'horizontal',
+            contents: [
+              {
+                type: 'text',
+                text: '4 Mie + 4 Telur + Gratis Nasi',
+                size: 'sm',
+                color: '#555555',
+                flex: 0
+              },
+              {
+                type: 'text',
+                text: 'Rp30.000',
+                size: 'sm',
+                color: '#111111',
+                align: 'end'
+              }
+            ]
+          },
+          {
+            type: 'box',
+            layout: 'horizontal',
+            contents: [
+              {
+                type: 'text',
+                text: 'Nasi Putih',
+                size: 'sm',
+                color: '#555555',
+                flex: 0
+              },
+              {
+                type: 'text',
+                text: 'Rp4000 & Rp 2000',
+                size: 'sm',
+                color: '#111111',
+                align: 'end'
               }
             ]
           }
@@ -124,32 +165,15 @@ module.exports = {
     type: 'box',
     layout: 'vertical',
     spacing: 'sm',
-    contents: [
-      {
-        type: 'button',
-        style: 'link',
-        height: 'sm',
-        action: {
-          type: 'uri',
-          label: 'CALL',
-          uri: 'https://linecorp.com'
-        }
-      },
-      {
-        type: 'button',
-        style: 'link',
-        height: 'sm',
-        action: {
-          type: 'uri',
-          label: 'WEBSITE',
-          uri: 'https://linecorp.com'
-        }
-      },
-      {
-        type: 'spacer',
-        size: 'sm'
+    contents: {
+      type: 'button',
+      style: 'primary',
+      height: 'sm',
+      action: {
+        type: 'uri',
+        label: 'Pesan Sekarang',
+        uri: 'http://line.me/ti/p/~mznsptr'
       }
-    ],
-    flex: 0
+    }
   }
 };
