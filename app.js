@@ -2,6 +2,8 @@ const line = require('@line/bot-sdk');
 const express = require('express');
 const schedule = require('node-schedule');
 
+const Scheduler = require('./Scheduler');
+
 const dotenv = require('dotenv').config();
 
 const config = {
@@ -39,8 +41,7 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  let job;
-  let angka;
+  let schedulerObj = new Scheduler();
 
   switch (event.message.text) {
     case '/maki':
@@ -60,28 +61,25 @@ async function handleEvent(event) {
         type: 'text',
         text: 'Sudah Berhasil Di push'
       });
-      job = schedule.scheduleJob('*/30 * * * * *', () =>
+      return schedulerObj.schedulePush('*/30 * * * * *', () =>
         client.pushMessage(event.source.userId, {
           type: 'text',
           text: 'Berhasil Push'
         })
       );
-      console.log(angka);
-      break;
     case 'promosi-mie-now':
       client.replyMessage(event.replyToken, {
         type: 'text',
         text: 'Sudah Berhasil Di Promosikan'
       });
-      return schedule.scheduleJob('*/30 * * * * *', () =>
+      return schedulerObj.schedulePush('*/30 * * * * *', () =>
         client.pushMessage(event.source.groupId, {
           type: 'text',
           text: 'Berhasil Push Group'
         })
       );
     case 'stop':
-      console.log(angka);
-      job.cancel();
+      schedulerObj.cancelSchedule();
       return client.replyMessage(event.replyToken, {
         type: 'text',
         text: 'Sudah Berhasil Di cancel'
