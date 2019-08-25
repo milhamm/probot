@@ -81,7 +81,7 @@ async function handleEvent(event) {
             text: 'Berhasil Push Group'
           })
       );
-      schedulerObj.setSchedule('Aang');
+      return schedulerObj.setSchedule(schedulerActive);
 
     case 'stop':
       schedulerObj.cancelSchedule();
