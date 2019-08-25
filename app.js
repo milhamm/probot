@@ -81,7 +81,7 @@ async function handleEvent(event) {
         type: 'text',
         text: 'Siap kak, aku bakalin promosi setiap 1 menit :D'
       });
-      const schedulerActive = schedule.scheduleJob('* */1 * * * *', () =>
+      const schedulerActive = schedule.scheduleJob('*/1 * * * *', () =>
         client.pushMessage(event.source.groupId, {
           type: 'flex',
           altText: 'Promosi Mie',
