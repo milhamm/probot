@@ -69,6 +69,8 @@ async function handleEvent(event) {
           text: 'Berhasil Push'
         })
       );
+    case 'testF':
+      return client.replyMessage(event.replyToken, menuFlex);
     case '!startPromosi':
       client.replyMessage(event.replyToken, {
         type: 'text',
