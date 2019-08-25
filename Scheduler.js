@@ -9,7 +9,7 @@ class Scheduler {
     this.scheduler.scheduleJob(uniqueName, time, callback);
   }
   setSchedule(scheduler) {
-    console.log(scheduler);
+    console.log('Scheduler Active: ', scheduler);
     this.activeScheduler = scheduler;
   }
   cancelSchedule() {
