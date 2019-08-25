@@ -32,6 +32,8 @@ app.post('/callback', line.middleware(config), (req, res) => {
     });
 });
 
+const schedulerObj = new Scheduler();
+
 // event handler
 async function handleEvent(event) {
   console.log(event);
@@ -40,8 +42,6 @@ async function handleEvent(event) {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
-
-  const schedulerObj = new Scheduler();
 
   switch (event.message.text) {
     case '/maki':
@@ -78,7 +78,7 @@ async function handleEvent(event) {
           text: 'Berhasil Push Group'
         })
       );
-      return await schedulerObj.setSchedule(schedulerActive);
+      return schedulerObj.setSchedule(schedulerActive);
 
     case 'stop':
       schedulerObj.cancelSchedule();
