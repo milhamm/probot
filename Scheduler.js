@@ -2,7 +2,6 @@ const schedule = require('node-schedule');
 
 class Scheduler {
   constructor() {
-    super();
     this.scheduler = schedule;
   }
 
