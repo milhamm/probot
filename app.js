@@ -2,6 +2,8 @@ const line = require('@line/bot-sdk');
 const express = require('express');
 const schedule = require('node-schedule');
 
+// Flex Messages
+const menuFlex = require('./flex/menuFlex');
 const Scheduler = require('./Scheduler');
 
 const dotenv = require('dotenv').config();
@@ -67,20 +69,17 @@ async function handleEvent(event) {
           text: 'Berhasil Push'
         })
       );
-    case 'promosi-mie-now':
+    case '!startPromosi':
       client.replyMessage(event.replyToken, {
         type: 'text',
-        text: 'Sudah Berhasil Di Promosikan'
+        text: 'Siap kak, aku bakalin promosi setiap 1 menit :D'
       });
-      const schedulerActive = schedule.scheduleJob('*/10 * * * * *', () =>
-        client.pushMessage(event.source.groupId, {
-          type: 'text',
-          text: 'Berhasil Push Group'
-        })
+      const schedulerActive = schedule.scheduleJob('*/59 * * * * *', () =>
+        client.pushMessage(event.source.groupId, menuFlex)
       );
       return schedulerObj.setSchedule(schedulerActive);
 
-    case 'stop':
+    case '!stopPromosi':
       schedulerObj.cancelSchedule();
       return client.replyMessage(event.replyToken, {
         type: 'text',
