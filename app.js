@@ -73,6 +73,7 @@ async function handleEvent(event) {
     case 'testF':
       return client.replyMessage(event.replyToken, {
         type: 'flex',
+        altText: 'Menu ',
         contents: menuFlex
       });
     case '!startPromosi':
