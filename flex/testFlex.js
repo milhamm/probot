@@ -5,58 +5,41 @@ module.exports = {
       separator: true
     }
   },
-  hero: {
-    type: 'image',
-    url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png',
-    size: 'full',
-    aspectRatio: '20:13',
-    aspectMode: 'cover',
-    action: {
-      type: 'uri',
-      uri: 'http://linecorp.com/'
-    }
-  },
   body: {
     type: 'box',
     layout: 'vertical',
     contents: [
       {
         type: 'text',
+        text: 'PROMOSI GAN',
+        weight: 'bold',
+        color: '#1DB446',
+        size: 'sm'
+      },
+      {
+        type: 'text',
         text: 'Mie Daffa',
         weight: 'bold',
-        size: 'xl'
+        size: 'xxl',
+        margin: 'md'
+      },
+      {
+        type: 'text',
+        text: 'Gedung 02 Kamar 419',
+        size: 'xs',
+        color: '#aaaaaa',
+        wrap: true
+      },
+      {
+        type: 'separator',
+        margin: 'xxl'
       },
       {
         type: 'box',
         layout: 'vertical',
-        margin: 'lg',
+        margin: 'xxl',
         spacing: 'sm',
         contents: [
-          {
-            type: 'box',
-            layout: 'baseline',
-            spacing: 'sm',
-            contents: [
-              {
-                type: 'text',
-                text: 'Lokasi',
-                color: '#aaaaaa',
-                size: 'sm',
-                flex: 1
-              },
-              {
-                type: 'text',
-                text: 'Gedung 02 Kamar ???',
-                wrap: true,
-                color: '#666666',
-                size: 'sm',
-                flex: 5
-              }
-            ]
-          },
-          {
-            type: 'separator'
-          },
           {
             type: 'box',
             layout: 'horizontal',
@@ -70,7 +53,7 @@ module.exports = {
               },
               {
                 type: 'text',
-                text: 'Rp6000',
+                text: 'Rp6.000',
                 size: 'sm',
                 color: '#111111',
                 align: 'end'
@@ -90,7 +73,7 @@ module.exports = {
               },
               {
                 type: 'text',
-                text: 'Rp8000',
+                text: 'Rp8.000',
                 size: 'sm',
                 color: '#111111',
                 align: 'end'
@@ -136,44 +119,30 @@ module.exports = {
                 align: 'end'
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        type: 'separator',
+        margin: 'xxl'
+      },
+      {
+        type: 'box',
+        layout: 'horizontal',
+        margin: 'md',
+        contents: [
           {
-            type: 'box',
-            layout: 'horizontal',
-            contents: [
-              {
-                type: 'text',
-                text: 'Nasi Putih',
-                size: 'sm',
-                color: '#555555',
-                flex: 0
-              },
-              {
-                type: 'text',
-                text: 'Rp4000 & Rp 2000',
-                size: 'sm',
-                color: '#111111',
-                align: 'end'
-              }
-            ]
+            type: 'button',
+            action: {
+              type: 'uri',
+              label: 'Pesan Sekarang',
+              uri: 'http://line.me/ti/p/~mznsptr'
+            },
+            style: 'primary',
+            color: '#0000ff'
           }
         ]
       }
     ]
-  },
-  footer: {
-    type: 'box',
-    layout: 'vertical',
-    spacing: 'sm',
-    contents: {
-      type: 'button',
-      style: 'primary',
-      height: 'sm',
-      action: {
-        type: 'uri',
-        label: 'Pesan Sekarang',
-        uri: 'http://line.me/ti/p/~mznsptr'
-      }
-    }
   }
 };
