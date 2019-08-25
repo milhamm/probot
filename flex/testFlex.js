@@ -136,7 +136,7 @@ module.exports = {
             action: {
               type: 'uri',
               label: 'Pesan Sekarang',
-              uri: 'http://line.me/ti/p/~mznsptr'
+              uri: 'http://line.me/ti/p/~daffasandy'
             },
             style: 'primary',
             color: '#0000ff'
