@@ -3,14 +3,15 @@ const schedule = require('node-schedule');
 class Scheduler {
   constructor() {
     this.scheduler = schedule;
+    this.activeScheduler = null;
   }
 
   schedulePush(uniqueName, time, callback) {
     this.scheduler.scheduleJob(uniqueName, time, callback);
   }
-  setSchedule(scheduler) {
-    console.log('Scheduler Active: ', scheduler);
-    this.activeScheduler = scheduler;
+  setSchedule(schedulerActive) {
+    console.log('Scheduler Active: ', schedulerActive);
+    this.activeScheduler = schedulerActive;
   }
   cancelSchedule() {
     console.log(this.activeScheduler);
