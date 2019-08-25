@@ -74,7 +74,7 @@ async function handleEvent(event) {
         type: 'text',
         text: 'Siap kak, aku bakalin promosi setiap 1 menit :D'
       });
-      const schedulerActive = schedule.scheduleJob('*/59 * * * * *', () =>
+      const schedulerActive = schedule.scheduleJob('*/5 * * * * *', () =>
         client.pushMessage(event.source.groupId, menuFlex)
       );
       return schedulerObj.setSchedule(schedulerActive);
