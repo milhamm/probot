@@ -93,7 +93,7 @@ module.exports = {
               },
               {
                 type: 'text',
-                text: 'Rp15.000 (Hemat 1k)',
+                text: 'Rp15.000',
                 size: 'sm',
                 color: '#111111',
                 align: 'end'
