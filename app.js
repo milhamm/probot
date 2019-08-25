@@ -41,7 +41,7 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  let schedulerObj;
+  const schedulerObj = new Scheduler();
 
   switch (event.message.text) {
     case '/maki':
@@ -61,7 +61,7 @@ async function handleEvent(event) {
         type: 'text',
         text: 'Sudah Berhasil Di push'
       });
-      return schedulerObj.schedulePush('*/30 * * * * *', () =>
+      return schedulerObj.schedulePush('pushMessage', '*/30 * * * * *', () =>
         client.pushMessage(event.source.userId, {
           type: 'text',
           text: 'Berhasil Push'
@@ -72,12 +72,12 @@ async function handleEvent(event) {
         type: 'text',
         text: 'Sudah Berhasil Di Promosikan'
       });
-      return (schedulerObj = new Scheduler('*/30 * * * * *', () =>
+      return schedulerObj.schedulePush('pushMessage', '*/10 * * * * *', () =>
         client.pushMessage(event.source.groupId, {
           type: 'text',
           text: 'Berhasil Push Group'
         })
-      ));
+      );
     case 'stop':
       schedulerObj.cancelSchedule();
       return client.replyMessage(event.replyToken, {

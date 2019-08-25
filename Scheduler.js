@@ -1,12 +1,17 @@
 const schedule = require('node-schedule');
 
 class Scheduler {
-  constructor(time, callback) {
-    this.scheduler = schedule.scheduleJob(time, callback);
+  constructor() {
+    this.scheduler = schedule;
   }
 
-  cancelSchedule() {
-    this.scheduler.cancel();
+  schedulePush(uniqueName, time, callback) {
+    this.scheduler.scheduleJob(uniqueName, time, callback);
+  }
+
+  cancelSchedule(uniqueName) {
+    this.anu = this.scheduler.scheduledJobs(uniqueName);
+    this.anu.cancel();
   }
 }
 
