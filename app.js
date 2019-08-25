@@ -72,12 +72,17 @@ async function handleEvent(event) {
         type: 'text',
         text: 'Sudah Berhasil Di Promosikan'
       });
-      return schedulerObj.schedulePush('pushMessage', '*/10 * * * * *', () =>
-        client.pushMessage(event.source.groupId, {
-          type: 'text',
-          text: 'Berhasil Push Group'
-        })
+      const schedulerActive = schedulerObj.schedulePush(
+        'pushMessage',
+        '*/10 * * * * *',
+        () =>
+          client.pushMessage(event.source.groupId, {
+            type: 'text',
+            text: 'Berhasil Push Group'
+          })
       );
+      return schedulerObj.setSchedule(schedulerActive);
+
     case 'stop':
       schedulerObj.cancelSchedule();
       return client.replyMessage(event.replyToken, {
