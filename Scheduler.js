@@ -10,7 +10,7 @@ class Scheduler {
   }
 
   cancelSchedule(uniqueName) {
-    this.anu = this.scheduler.scheduledJobs(uniqueName);
+    this.anu = this.scheduler.scheduledJobs[uniqueName];
     this.anu.cancel();
   }
 }
