@@ -77,10 +77,17 @@ async function handleEvent(event) {
         contents: testFlex
       });
     case '!startPromosi':
-      client.replyMessage(event.replyToken, {
-        type: 'text',
-        text: 'Siap kak, aku bakalin promosi setiap 1 menit :D'
-      });
+      client.replyMessage(event.replyToken, [
+        {
+          type: 'text',
+          text: 'Siap kak, aku bakalan promosi setiap 1 menit :D'
+        },
+        {
+          type: 'flex',
+          altText: 'Promosi Mie',
+          contents: testFlex
+        }
+      ]);
       const schedulerActive = schedule.scheduleJob('*/1 * * * *', () =>
         client.pushMessage(event.source.groupId, {
           type: 'flex',
