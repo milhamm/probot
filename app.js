@@ -72,14 +72,11 @@ async function handleEvent(event) {
         type: 'text',
         text: 'Sudah Berhasil Di Promosikan'
       });
-      const schedulerActive = schedulerObj.schedulePush(
-        'pushMessage',
-        '*/10 * * * * *',
-        () =>
-          client.pushMessage(event.source.groupId, {
-            type: 'text',
-            text: 'Berhasil Push Group'
-          })
+      const schedulerActive = schedule.scheduleJob('*/10 * * * * *', () =>
+        client.pushMessage(event.source.groupId, {
+          type: 'text',
+          text: 'Berhasil Push Group'
+        })
       );
       return schedulerObj.setSchedule(schedulerActive);
 
