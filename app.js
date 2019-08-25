@@ -88,7 +88,7 @@ async function handleEvent(event) {
           contents: testFlex
         }
       ]);
-      const schedulerActive = schedule.scheduleJob('*/1 * * * *', () =>
+      const schedulerActive = schedule.scheduleJob('*/59 * * * * *', () =>
         client.pushMessage(event.source.groupId, {
           type: 'flex',
           altText: 'Promosi Mie',
