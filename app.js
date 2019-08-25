@@ -72,12 +72,12 @@ async function handleEvent(event) {
         type: 'text',
         text: 'Sudah Berhasil Di Promosikan'
       });
-      schedulerObj = new Scheduler('*/30 * * * * *', () =>
+      return (schedulerObj = new Scheduler('*/30 * * * * *', () =>
         client.pushMessage(event.source.groupId, {
           type: 'text',
           text: 'Berhasil Push Group'
         })
-      );
+      ));
     case 'stop':
       schedulerObj.cancelSchedule();
       return client.replyMessage(event.replyToken, {
