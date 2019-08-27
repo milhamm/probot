@@ -35,6 +35,12 @@ app.post('/callback', line.middleware(config), (req, res) => {
     });
 });
 
+// Check Dialogflow
+
+app.post('/dialogflow', (req, res) => {
+  console.log(req);
+});
+
 const schedulerObj = new Scheduler();
 
 // event handler
