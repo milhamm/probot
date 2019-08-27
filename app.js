@@ -43,7 +43,12 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 app.post('/dialogflow', (req, res) => {
   console.log('Body: ', req.body);
-  fs.writeFileSync(`${__dirname}/static/anu.html`, req, 'utf-8');
+
+  fs.writeFileSync(
+    `${__dirname}/static/test.json`,
+    JSON.stringify(req.body),
+    'utf-8'
+  );
   res.status(200).end();
 });
 
