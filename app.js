@@ -1,6 +1,7 @@
 const line = require('@line/bot-sdk');
 const express = require('express');
 const schedule = require('node-schedule');
+const fs = require('fs');
 
 // Flex Messages
 const menuFlex = require('./flex/menuFlex');
@@ -41,6 +42,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 app.post('/dialogflow', (req, res) => {
   console.log(req);
+  fs.writeFileSync(`${__dirname}/static/test.json`, req, 'utf-8');
   res.status(200).end();
 });
 
