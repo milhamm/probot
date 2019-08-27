@@ -49,8 +49,6 @@ app.post('/dialogflow', (req, res) => {
     contents: testFlex
   };
 
-  let payload = new Payload(`LINE`, payloadJson, { sendAsMessage: true });
-
   console.log('Body: ', req.body);
   console.log(payload);
 
@@ -59,7 +57,18 @@ app.post('/dialogflow', (req, res) => {
     JSON.stringify(req.body),
     'utf-8'
   );
-  res.status(200).json(payload);
+  res.status(200).json({
+    messages: [
+      {
+        type: 0,
+        payload: {
+          line: {
+            payloadJson
+          }
+        }
+      }
+    ]
+  });
 });
 
 const schedulerObj = new Scheduler();
