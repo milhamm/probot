@@ -87,13 +87,6 @@ app.post('/dialogflow', (req, res) => {
       slack: {
         text: 'This is a text response for Slack.'
       }
-    },
-    followupEventInput: {
-      name: 'event name',
-      languageCode: 'en-US',
-      parameters: {
-        param: 'param value'
-      }
     }
   };
 
