@@ -39,6 +39,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 app.post('/dialogflow', (req, res) => {
   console.log(req);
+  res.status(200);
 });
 
 const schedulerObj = new Scheduler();
