@@ -42,7 +42,11 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 app.post('/dialogflow', (req, res) => {
   console.log(req);
-  fs.writeFileSync(`${__dirname}/static/test.json`, req, 'utf-8');
+  fs.writeFileSync(
+    `${__dirname}/static/test.json`,
+    JSON.stringify(req),
+    'utf-8'
+  );
   res.status(200).end();
 });
 
