@@ -70,7 +70,8 @@ app.post('/dialogflow', (req, res) => {
         text: 'This is a text response for Slack.'
       },
       line: {
-        payloadJson
+        type: 'text',
+        text: `Mieee`
       }
     }
   };
