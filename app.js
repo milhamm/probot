@@ -19,6 +19,7 @@ const client = new line.Client(config);
 
 const app = express();
 
+app.use(express.json());
 app.use(express.static(`${__dirname}/static`));
 
 app.get('/', (req, res) => {
@@ -41,7 +42,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 // Check Dialogflow
 
 app.post('/dialogflow', (req, res) => {
-  console.log(req);
+  console.log('Body: ', req.body);
   fs.writeFileSync(`${__dirname}/static/anu.html`, req, 'utf-8');
   res.status(200).end();
 });
