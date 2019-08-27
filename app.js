@@ -50,7 +50,7 @@ app.post('/dialogflow', (req, res) => {
   };
 
   console.log('Body: ', req.body);
-  console.log(payload);
+  // console.log(payload);
 
   fs.writeFileSync(
     `${__dirname}/static/test.json`,
