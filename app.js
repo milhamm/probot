@@ -2,6 +2,7 @@ const line = require('@line/bot-sdk');
 const express = require('express');
 const schedule = require('node-schedule');
 const fs = require('fs');
+const { WebhookClient, Payload } = require('dialogflow-fulfillment');
 
 // Flex Messages
 const menuFlex = require('./flex/menuFlex');
@@ -42,14 +43,25 @@ app.post('/callback', line.middleware(config), (req, res) => {
 // Check Dialogflow
 
 app.post('/dialogflow', (req, res) => {
+  const agent = new WebhookClient({ request: request, response: response });
+
+  const payloadJson = {
+    type: 'flex',
+    altText: 'Menu ',
+    contents: testFlex
+  };
+
+  let payload = new Payload(`LINE`, payloadJson, { sendAsMessage: true });
+
   console.log('Body: ', req.body);
+  console.log(payload);
 
   fs.writeFileSync(
     `${__dirname}/static/test.json`,
     JSON.stringify(req.body),
     'utf-8'
   );
-  res.status(200).end();
+  res.status(200).json(payload);
 });
 
 const schedulerObj = new Scheduler();
