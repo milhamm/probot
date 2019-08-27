@@ -43,8 +43,6 @@ app.post('/callback', line.middleware(config), (req, res) => {
 // Check Dialogflow
 
 app.post('/dialogflow', (req, res) => {
-  const agent = new WebhookClient({ request: request, response: response });
-
   const payloadJson = {
     type: 'flex',
     altText: 'Menu ',
