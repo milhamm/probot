@@ -49,6 +49,54 @@ app.post('/dialogflow', (req, res) => {
     contents: testFlex
   };
 
+  const contoh = {
+    fulfillmentText: 'This is a text response',
+    fulfillmentMessages: [
+      {
+        card: {
+          title: 'card title',
+          subtitle: 'card text',
+          imageUri:
+            'https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png',
+          buttons: [
+            {
+              text: 'button text',
+              postback: 'https://assistant.google.com/'
+            }
+          ]
+        }
+      }
+    ],
+    source: 'example.com',
+    payload: {
+      google: {
+        expectUserResponse: true,
+        richResponse: {
+          items: [
+            {
+              simpleResponse: {
+                textToSpeech: 'this is a simple response'
+              }
+            }
+          ]
+        }
+      },
+      facebook: {
+        text: 'Hello, Facebook!'
+      },
+      slack: {
+        text: 'This is a text response for Slack.'
+      }
+    },
+    followupEventInput: {
+      name: 'event name',
+      languageCode: 'en-US',
+      parameters: {
+        param: 'param value'
+      }
+    }
+  };
+
   console.log('Body: ', req.body);
   // console.log(payload);
 
@@ -57,18 +105,7 @@ app.post('/dialogflow', (req, res) => {
     JSON.stringify(req.body),
     'utf-8'
   );
-  res.status(200).json({
-    messages: [
-      {
-        type: 0,
-        payload: {
-          line: {
-            payloadJson
-          }
-        }
-      }
-    ]
-  });
+  res.status(200).json(contoh);
 });
 
 const schedulerObj = new Scheduler();
