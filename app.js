@@ -50,7 +50,7 @@ app.post('/dialogflow', (req, res) => {
   };
 
   const contoh = {
-    fulfillmentMessages: [{ payloadJson }]
+    fulfillmentMessages: [{ payload: { line: { payloadJson } } }]
   };
 
   console.log('Body: ', req.body);
