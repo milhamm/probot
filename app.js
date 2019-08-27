@@ -50,30 +50,7 @@ app.post('/dialogflow', (req, res) => {
   };
 
   const contoh = {
-    payload: {
-      google: {
-        expectUserResponse: true,
-        richResponse: {
-          items: [
-            {
-              simpleResponse: {
-                textToSpeech: 'this is a simple response'
-              }
-            }
-          ]
-        }
-      },
-      facebook: {
-        text: 'Hello, Facebook!'
-      },
-      slack: {
-        text: 'This is a text response for Slack.'
-      },
-      line: {
-        type: 'text',
-        text: `Mieee`
-      }
-    }
+    fulfillmentMessages: [{ payloadJson }]
   };
 
   console.log('Body: ', req.body);
