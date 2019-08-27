@@ -51,7 +51,9 @@ app.post('/dialogflow', (req, res) => {
 
   const contoh = {
     fulfillmentMessages: [
-      { payload: { line: { type: 'text', text: 'halo gan' } } }
+      {
+        payload: { line: { type: 'flex', altText: 'menu', contents: testFlex } }
+      }
     ]
   };
 
