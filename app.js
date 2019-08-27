@@ -2,7 +2,6 @@ const line = require('@line/bot-sdk');
 const express = require('express');
 const schedule = require('node-schedule');
 const fs = require('fs');
-const { WebhookClient, Payload } = require('dialogflow-fulfillment');
 
 // Flex Messages
 const menuFlex = require('./flex/menuFlex');
