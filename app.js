@@ -18,6 +18,8 @@ const client = new line.Client(config);
 
 const app = express();
 
+app.use(express.static(`${__dirname}/static`));
+
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'Berhasil Gan'
@@ -39,7 +41,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 app.post('/dialogflow', (req, res) => {
   console.log(req);
-  res.status(200);
+  res.status(200).end();
 });
 
 const schedulerObj = new Scheduler();
